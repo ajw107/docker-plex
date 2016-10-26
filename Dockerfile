@@ -1,4 +1,4 @@
-FROM lsiobase/xenial
+3FROM lsiobase/xenial
 MAINTAINER Stian Larsen, sparklyballs
 
 # package version
@@ -6,7 +6,8 @@ ENV PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubunt
 
 # global environment settings
 ENV DEBIAN_FRONTEND="noninteractive"
-ENV HOME="/config"
+ENV CONFIG="/config"
+ENV HOME="${CONFIG}"
 ENV PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server"
 
 #make life easy for yourself
@@ -43,4 +44,4 @@ COPY root/ /
 
 # ports and volumes
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
-VOLUME /config /transcode
+VOLUME "${CONFIG}" /transcode
