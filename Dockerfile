@@ -1,5 +1,5 @@
-3FROM lsiobase/xenial
-MAINTAINER Stian Larsen, sparklyballs
+FROM lsiobase/xenial
+MAINTAINER Stian Larsen, sparklyballs, ajw107 (Alex Wood)
 
 # package version
 ENV PLEX_INSTALL="https://plex.tv/downloads/latest/1?channel=8&build=linux-ubuntu-x86_64&distro=ubuntu"
