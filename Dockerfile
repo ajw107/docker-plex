@@ -12,8 +12,10 @@ ENV PLEX_DOWNLOAD="https://downloads.plex.tv/plex-media-server"
 
 #make life easy for yourself
 ENV TERM=xterm-color
-RUN echo $'#!/bin/bash\nls -alF --color=auto --group-directories-first --time-style=+"%H:%M %d/%m/%Y" --block-size="\'1" $@' > /usr/bin/ll
-RUN chmod +x /usr/bin/ll
+#it works in alpine images, but not ubuntu for some reason
+#so just copying the file over instead
+#RUN echo $'#!/bin/bash\nls -alF --color=auto --group-directories-first --time-style=+"%H:%M %d/%m/%Y" --block-size="\'1" $@' > /usr/bin/ll
+#RUN chmod +x /usr/bin/ll
 
 # install packages
 RUN \
@@ -41,6 +43,7 @@ RUN \
 
 # add local files
 COPY root/ /
+RUN chmod +x /usr/bin/ll
 
 # ports and volumes
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
